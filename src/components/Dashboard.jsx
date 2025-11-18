@@ -23,7 +23,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="profile-view-tab">
-        <span>Profile Views: {profileViews}</span>
+        <span>{profileViews}</span>
       </div>
       <h1>Dashboard</h1>
       <div className="filters">
@@ -92,10 +92,7 @@ const Dashboard = () => {
             ))}
           </div>
         </section>
-        <section>
-          <h2>Profile Views</h2>
-          <p>{profileViews} views</p>
-        </section>
+        
         <section>
           <h2>Discovery</h2>
           <div>

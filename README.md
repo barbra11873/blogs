@@ -1,16 +1,62 @@
-# React + Vite
+# Blog App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React + Vite blog application scaffold that demonstrates creating posts, viewing them in a dashboard, and a simple profile page. This repository contains the UI and components for a single-page app built with Vite and React.
 
-Currently, two official plugins are available:
+**Status:** Minimal example / starter template for a blog UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Built with:** React, Vite, plain CSS.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Create and preview posts (client-side only)
+- Dashboard to list posts
+- Simple profile view
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React (JSX)
+- Vite (dev server + build)
+- Plain CSS for styling
+
+## Project Structure
+
+- `index.html` - App entry HTML
+- `src/main.jsx` - React entry, mounts the app
+- `src/App.jsx` - Top-level app component
+- `src/components/` - UI components (`CreatePost.jsx`, `Dashboard.jsx`, `Profile.jsx`)
+- `src/assets/` - Static assets
+- `public/` - Static files served by Vite
+
+## Getting Started
+
+Prerequisites: Node.js (18+ recommended) and npm.
+
+Install dependencies and start the dev server:
+
+```powershell
+npm install
+npm run dev
+```
+
+Open the app in your browser at `http://localhost:5173` (Vite prints the URL after starting).
+
+Build for production:
+
+```powershell
+npm run build
+npm run preview
+```
+
+## Notes
+
+- This project is a frontend-only example. There is no backend persistence for posts — data is kept in component state.
+- If you see a blank page when running the dev server, open the browser console and the terminal running `npm run dev` to check for compilation or runtime errors.
+
+## Contributing
+
+Feel free to open issues, add features, or adapt this template for your own blog projects.
+
+## License
+
+This project is provided as-is. Add a license if you plan to publish or share broadly.
+
