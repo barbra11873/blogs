@@ -30,6 +30,9 @@ const Dashboard = () => {
   const recentPosts = sortedPosts.slice(0, 2);
   const popularPosts = sortedPosts.filter(post => post.views > 100);
   const profileViews = 150;
+  const postCount = posts.length;
+  const likesReceived = posts.reduce((sum, p) => sum + (p.likes || 0), 0);
+  const commentsMade = posts.reduce((sum, p) => sum + (p.comments ? p.comments.length : 0), 0);
 
   return (
     <div className="dashboard">
@@ -37,6 +40,22 @@ const Dashboard = () => {
         <span>{profileViews}</span>
       </div>
       <h1>Dashboard</h1>
+
+      <div className="user-stats">
+        <div className="stat-card">
+          <div className="stat-value">{postCount}</div>
+          <div className="stat-label">Posts</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">{likesReceived}</div>
+          <div className="stat-label">Likes Received</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">{commentsMade}</div>
+          <div className="stat-label">Comments</div>
+        </div>
+      </div>
+
       <div className="filters">
         <input type="text" placeholder="Search posts..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
         <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>

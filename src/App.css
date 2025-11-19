@@ -142,3 +142,30 @@ button {
 button:hover {
   background-color: #218838;
 }
+
+.user-stats {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.9);
+  color: #213547;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  min-width: 120px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #54606a;
+}
