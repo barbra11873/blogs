@@ -10,14 +10,25 @@ const Dashboard = () => {
 
   const [filterCategory, setFilterCategory] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortOption, setSortOption] = useState('newest');
 
   const filteredPosts = posts.filter(post =>
     (filterCategory ? post.category === filterCategory : true) &&
     (searchTerm ? post.title.toLowerCase().includes(searchTerm.toLowerCase()) : true)
   );
 
-  const recentPosts = filteredPosts.slice(0, 2);
-  const popularPosts = filteredPosts.filter(post => post.views > 100);
+  // Apply sorting to the filtered posts
+  const sortedPosts = sortOption
+    ? [...filteredPosts].sort((a, b) => {
+        if (sortOption === 'newest') return b.id - a.id; // higher id == newer
+        if (sortOption === 'mostLiked') return b.likes - a.likes;
+        if (sortOption === 'mostCommented') return b.comments.length - a.comments.length;
+        return 0;
+      })
+    : filteredPosts;
+
+  const recentPosts = sortedPosts.slice(0, 2);
+  const popularPosts = sortedPosts.filter(post => post.views > 100);
   const profileViews = 150;
 
   return (
@@ -34,6 +45,14 @@ const Dashboard = () => {
           <option value="lifestyle">Lifestyle</option>
           <option value="educative">Educative</option>
         </select>
+        <label style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+          Sort by:
+          <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
+            <option value="newest">Newest</option>
+            <option value="mostLiked">Most Liked</option>
+            <option value="mostCommented">Most Commented</option>
+          </select>
+        </label>
       </div>
       <div className="dashboard-content">
         <section>
